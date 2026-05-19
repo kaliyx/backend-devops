@@ -1,0 +1,13 @@
+services:
+  backend:
+    image: backend
+    container_name: backend-app
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: 10.0.159.63
+      DB_USER: alumno
+      DB_PASSWORD: alumno123
+      DB_NAME: tienda_perritos
+      DB_PORT: 3306
+    restart: always
