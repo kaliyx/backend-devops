@@ -1,0 +1,12 @@
+docker build -t backend-devops .
+
+docker tag backend-devops:latest \
+239844923591.dkr.ecr.us-east-1.amazonaws.com/backend-devops:latest
+
+docker push \
+239844923591.dkr.ecr.us-east-1.amazonaws.com/backend-devops:latest
+
+aws ecs update-service \
+  --cluster devops-cluster \
+  --service backend-service \
+  --force-new-deployment
